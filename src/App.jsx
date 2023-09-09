@@ -1,11 +1,11 @@
-function App() {
-  
+import { BasicTable } from "./components/BasicTable";
 
+function App() {
   return (
     <>
-      <h1>react table</h1>
+      <BasicTable />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
