@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { ColumnFilter } from "./utils/ColumnFilter";
+import { ColumnFilter } from "./ColumnFilter.jsx";
 export const COLUMNS = [
   {
     Header: "Id",

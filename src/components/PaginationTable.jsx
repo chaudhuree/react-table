@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { usePagination, useTable } from "react-table";
 import "../App.css";
 import MOCK_DATA from "../assets/MOCK_DATA.json";
-import { COLUMNS } from "./columns";
+import { COLUMNS } from "./utils/columns.jsx";
 
 export const PaginationTable = () => {
   const columns = useMemo(() => COLUMNS, []);
