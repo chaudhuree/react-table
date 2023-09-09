@@ -6,12 +6,14 @@ export const COLUMNS = [
     Footer: "Id",
     accessor: "id",
     Filter: ColumnFilter,
+    disableFilters: true,
   },
   {
     Header: "First Name",
     Footer: "First Name",
     accessor: "first_name",
     Filter: ColumnFilter,
+    disableFilters: true,
   },
   {
     Header: "Last Name",
@@ -27,6 +29,7 @@ export const COLUMNS = [
       return format(new Date(value), "dd/MM/yyyy");
     },
     Filter: ColumnFilter,
+    disableFilters: true,
   },
   {
     Header: "Country",
@@ -51,5 +54,6 @@ export const COLUMNS = [
     Footer: "Age",
     accessor: "age",
     Filter: ColumnFilter,
+    disableFilters: true,
   },
 ];
