@@ -19,6 +19,9 @@ export const PaginationTable = () => {
     canNextPage,
     pageOptions,
     state,
+    gotoPage,
+    pageCount,
+    setPageSize,
     prepareRow,
   } = useTable(
     {
@@ -57,17 +60,52 @@ export const PaginationTable = () => {
         </tbody>
       </table>
 
-      <div style={{margin:"10px",textAlign:"center"}}>
+      <div style={{ margin: "10px", textAlign: "center" }}>
         <span>
           <strong>{pageIndex + 1}</strong> of {pageOptions.length}
         </span>{" "}
         {""}
+        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          {"<<"}
+        </button>{" "}
         <button onClick={() => previousPage()} disabled={!canPreviousPage}>
           Previous
         </button>{" "}
+        <span>
+          | Go to page:{" "}
+          <input
+            type="number"
+            min={0}
+            max={pageOptions.length}
+            defaultValue={pageIndex + 1}
+            onChange={(e) => {
+              const pageNumber = e.target.value
+                ? Number(e.target.value) - 1
+                : 0;
+              gotoPage(pageNumber);
+            }}
+            style={{ width: "100px" }}
+          />
+        </span>{" "}
         <button onClick={() => nextPage()} disabled={!canNextPage}>
           Next
-        </button>
+        </button>{" "}
+        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+          {">>"}
+        </button>{" "}
+      </div>
+      <div style={{ width: "50px", margin: "0 auto", textAlign: "center" }}>
+        <select
+          style={{ width: "180px" }}
+          value={pageSize}
+          onChange={(e) => setPageSize(Number(e.target.value))}
+        >
+          {[10, 25, 50].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+        </select>
       </div>
     </>
   );
